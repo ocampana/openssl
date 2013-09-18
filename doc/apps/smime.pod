@@ -17,6 +17,7 @@ B<openssl> B<smime>
 [B<-in file>]
 [B<-certfile file>]
 [B<-signer file>]
+[B<-signerhash file>]
 [B<-recip  file>]
 [B<-inform SMIME|PEM|DER>]
 [B<-passin arg>]
@@ -220,6 +221,12 @@ a signing certificate when signing or resigning a message, this option can be
 used multiple times if more than one signer is required. If a message is being
 verified then the signers certificates will be written to this file if the
 verification was successful.
+
+=item B<-signerhash file>
+
+the sha256sum of the DER-encoded public certificate used for signing the file.
+This, together with -md sha256, is required to output a pkcs#7 file conformant
+with cades.
 
 =item B<-recip file>
 
